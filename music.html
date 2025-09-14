@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" href="favicon.png" type="image/png">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Blake Foster - Music</title>
@@ -41,21 +40,25 @@
 
     .music-links a {
       text-decoration: none;
-      color: #000;
       transition: color 0.3s;
     }
 
-    .music-links a:hover {
-      color: #555;
-    }
+    /* Assign specific colors */
+    .spotify { color: #1DB954; }
+    .spotify:hover { color: #14833b; }
 
-    /* Mini-footer: moved up a little to avoid Safari clipping */
+    .apple { color: #FB5C74; }
+    .apple:hover { color: #e04a62; }
+
+    .youtube { color: #FF0000; }
+    .youtube:hover { color: #cc0000; }
+
     .back-home {
       font-size: 1rem;
       text-decoration: none;
       color: #000;
       margin-top: auto;
-      margin-bottom: 3rem; /* increased margin from bottom */
+      margin-bottom: 3rem; /* keeps mini-footer above Safari toolbar */
       transition: color 0.3s;
     }
 
@@ -75,9 +78,9 @@
     <h1>Music</h1>
 
     <div class="music-links">
-      <a href="https://open.spotify.com/artist/3pKKxzrrTw8EeCowKnmrOU?si=BG-rJ2t4T_mgPr0R040Teg" target="_blank">Spotify</a>
-      <a href="https://music.apple.com/us/artist/blake-foster/1439072791" target="_blank">Apple Music</a>
-      <a href="https://www.youtube.com/@screamblakefoster" target="_blank">YouTube</a>
+      <a href="https://open.spotify.com/artist/3pKKxzrrTw8EeCowKnmrOU?si=BG-rJ2t4T_mgPr0R040Teg" target="_blank" class="spotify">Spotify</a>
+      <a href="https://music.apple.com/us/artist/blake-foster/1439072791" target="_blank" class="apple">Apple Music</a>
+      <a href="https://www.youtube.com/@screamblakefoster" target="_blank" class="youtube">YouTube</a>
     </div>
 
     <a href="index.html" class="back-home">Back to Home</a>
