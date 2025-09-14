@@ -34,6 +34,25 @@
     p {
       font-size: 2rem;
       color: #555;
+      margin-bottom: 2rem;
+    }
+
+    /* Shirt image animation */
+    .shirt-container {
+      width: 200px; /* adjust size as needed */
+      height: auto;
+    }
+
+    .shirt-container img {
+      width: 100%;
+      height: auto;
+      transform-origin: top center;
+      animation: swing 2.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes swing {
+      0% { transform: rotate(-6deg); }
+      100% { transform: rotate(6deg); }
     }
 
     .back-home {
@@ -60,6 +79,11 @@
   <main>
     <h1>Shop</h1>
     <p>Coming Soon</p>
+
+    <!-- swinging shirt image -->
+    <div class="shirt-container">
+      <img src="shirt.png" alt="Coming Soon T-shirt">
+    </div>
 
     <a href="index.html" class="back-home">Back to Home</a>
   </main>
