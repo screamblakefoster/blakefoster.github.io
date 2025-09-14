@@ -23,16 +23,48 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
+      padding-top: 4rem;
     }
 
     h1 {
       font-size: 3rem;
-      margin-bottom: 2rem;
+      margin-bottom: 2.5rem;
     }
 
-    p {
-      font-size: 2rem;
+    .tour-list {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      font-size: 1.5rem;
+      width: 90%;
+      max-width: 600px;
+      text-align: left;
+    }
+
+    .tour-item {
+      padding: 15px 20px;
+      border-left: 4px solid #000;
+      transition: background-color 0.3s, border-color 0.3s;
+    }
+
+    .tour-item:hover {
+      background-color: #f7f7f7;
+      border-color: #1DB954; /* subtle color accent on hover */
+    }
+
+    .tour-date {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .tour-venue {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    .tour-city {
+      font-size: 1rem;
       color: #555;
     }
 
@@ -41,7 +73,7 @@
       text-decoration: none;
       color: #000;
       margin-top: auto;
-      margin-bottom: 3rem; /* increased margin from bottom */
+      margin-bottom: 3rem;
       transition: color 0.3s;
     }
 
@@ -59,7 +91,32 @@
 <body>
   <main>
     <h1>Shows</h1>
-    <p>Coming Soon</p>
+
+    <div class="tour-list">
+      <div class="tour-item">
+        <div class="tour-date">September 17th</div>
+        <div class="tour-venue">Wonder Bar</div>
+        <div class="tour-city">Asbury Park, NJ</div>
+      </div>
+
+      <div class="tour-item">
+        <div class="tour-date">September 27th</div>
+        <div class="tour-venue">Asbury Park Porchfest</div>
+        <div class="tour-city">Asbury Park, NJ</div>
+      </div>
+
+      <div class="tour-item">
+        <div class="tour-date">October 5th</div>
+        <div class="tour-venue">Mercury Lounge</div>
+        <div class="tour-city">New York, NY</div>
+      </div>
+
+      <div class="tour-item">
+        <div class="tour-date">October 30th</div>
+        <div class="tour-venue">House Show #2</div>
+        <div class="tour-city">???</div>
+      </div>
+    </div>
 
     <a href="index.html" class="back-home">Back to Home</a>
   </main>
