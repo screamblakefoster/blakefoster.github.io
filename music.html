@@ -40,7 +40,7 @@
 
     .music-links a {
       text-decoration: none;
-      transition: color 0.3s;
+      transition: color 0.3s; /* smooth hover transition for all links */
     }
 
     /* Assign specific colors */
@@ -56,12 +56,15 @@
     .soundcloud { color: #FF8800; }
     .soundcloud:hover { color: #cc6f00; }
 
+    .demos { color: #800080; }      /* purple */
+    .demos:hover { color: #4b0082; } /* darker purple on hover */
+
     .back-home {
       font-size: 1rem;
       text-decoration: none;
       color: #000;
       margin-top: auto;
-      margin-bottom: 3rem; /* keeps mini-footer above Safari toolbar */
+      margin-bottom: 3rem;
       transition: color 0.3s;
     }
 
@@ -85,6 +88,7 @@
       <a href="https://music.apple.com/us/artist/blake-foster/1439072791" target="_blank" class="apple">Apple Music</a>
       <a href="https://www.youtube.com/@screamblakefoster" target="_blank" class="youtube">YouTube</a>
       <a href="https://soundcloud.com/lakeblake" target="_blank" class="soundcloud">SoundCloud</a>
+      <a href="https://untitled.stream/library/project/hZM9BefNSG9EInJ4HDVj5" target="_blank" class="demos">Demos</a>
     </div>
 
     <a href="index.html" class="back-home">Back to Home</a>
