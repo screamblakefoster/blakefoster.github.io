@@ -35,27 +35,33 @@
     .tour-list {
       display: flex;
       flex-direction: column;
-      gap: 25px;
+      gap: 20px;
       font-size: 1.5rem;
       width: 90%;
-      max-width: 600px;
+      max-width: 800px;
       text-align: left;
     }
 
     .tour-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       padding: 15px 20px;
-      border-left: 4px solid #000;
-      transition: background-color 0.3s, border-color 0.3s;
+      transition: background-color 0.3s;
     }
 
     .tour-item:hover {
       background-color: #f7f7f7;
-      border-color: #1DB954; /* subtle color accent on hover */
+    }
+
+    .tour-info {
+      display: flex;
+      flex-direction: column;
     }
 
     .tour-date {
       font-weight: bold;
-      margin-bottom: 5px;
+      margin-bottom: 2px;
     }
 
     .tour-venue {
@@ -66,6 +72,22 @@
     .tour-city {
       font-size: 1rem;
       color: #555;
+    }
+
+    .ticket-btn {
+      padding: 8px 16px;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #fff;
+      background-color: #1DB954;
+      border: none;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+
+    .ticket-btn:hover {
+      background-color: #14833b;
     }
 
     .back-home {
@@ -86,6 +108,18 @@
       font-size: 0.8rem;
       opacity: 0.5;
     }
+
+    @media (max-width: 600px) {
+      .tour-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .ticket-btn {
+        align-self: flex-start;
+      }
+    }
   </style>
 </head>
 <body>
@@ -94,27 +128,39 @@
 
     <div class="tour-list">
       <div class="tour-item">
-        <div class="tour-date">September 17th</div>
-        <div class="tour-venue">Wonder Bar</div>
-        <div class="tour-city">Asbury Park, NJ</div>
+        <div class="tour-info">
+          <div class="tour-date">September 17th</div>
+          <div class="tour-venue">Wonder Bar</div>
+          <div class="tour-city">Asbury Park, NJ</div>
+        </div>
+        <a href="#" class="ticket-btn">Tickets</a>
       </div>
 
       <div class="tour-item">
-        <div class="tour-date">September 27th</div>
-        <div class="tour-venue">Asbury Park Porchfest</div>
-        <div class="tour-city">Asbury Park, NJ</div>
+        <div class="tour-info">
+          <div class="tour-date">September 27th</div>
+          <div class="tour-venue">Asbury Park Porchfest</div>
+          <div class="tour-city">Asbury Park, NJ</div>
+        </div>
+        <a href="#" class="ticket-btn">Tickets</a>
       </div>
 
       <div class="tour-item">
-        <div class="tour-date">October 5th</div>
-        <div class="tour-venue">Mercury Lounge</div>
-        <div class="tour-city">New York, NY</div>
+        <div class="tour-info">
+          <div class="tour-date">October 5th</div>
+          <div class="tour-venue">Mercury Lounge</div>
+          <div class="tour-city">New York, NY</div>
+        </div>
+        <a href="#" class="ticket-btn">Tickets</a>
       </div>
 
       <div class="tour-item">
-        <div class="tour-date">October 30th</div>
-        <div class="tour-venue">House Show #2</div>
-        <div class="tour-city">???</div>
+        <div class="tour-info">
+          <div class="tour-date">October 30th</div>
+          <div class="tour-venue">House Show #2</div>
+          <div class="tour-city">???</div>
+        </div>
+        <a href="#" class="ticket-btn">Tickets</a>
       </div>
     </div>
 
