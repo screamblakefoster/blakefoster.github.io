@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" href="images/favicon.png" type="image/png">
+  <link rel="icon" href="favicon.png" type="image/png">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Blake Foster</title>
@@ -38,9 +38,9 @@
     /* Page Links + Image Wrapper */
     .links-wrapper {
       display: flex;
-      align-items: center;
+      align-items: center; /* vertically align list and image */
       justify-content: center;
-      gap: 15px;
+      gap: 15px; /* smaller space between list and image */
       margin-bottom: 4rem;
     }
 
@@ -63,7 +63,7 @@
     }
 
     .side-image {
-      width: 175px;
+      width: 175px; /* bigger image */
       height: auto;
     }
 
@@ -106,68 +106,9 @@
       font-size: 0.8rem;
       opacity: 0.5;
     }
-
-    /* Floating images container */
-    .float-container {
-      position: fixed;
-      width: 120px;
-      z-index: 1;
-      opacity: 0.9;
-      top: 100%;
-      animation: floatUp 30s linear infinite;
-    }
-
-    /* left & right placement */
-    .float-container.left {
-      left: 0;
-    }
-    .float-container.right {
-      right: 0;
-    }
-
-    /* make the img fill the container width */
-    .float-container img {
-      width: 100%;
-      height: auto;
-    }
-
-    /* Only show on desktop */
-    @media (max-width: 991px) {
-      .float-container {
-        display: none;
-      }
-    }
-
-    /* The upward float animation */
-    @keyframes floatUp {
-      0%   { top: 100%; }
-      100% { top: -200px; }
-    }
   </style>
 </head>
 <body>
-  <!-- Left floating images -->
-  <div class="float-container left" style="animation-delay:0s;">
-    <img src="images/left-float1.png" alt="">
-  </div>
-  <div class="float-container left" style="animation-delay:10s;">
-    <img src="images/left-float2.png" alt="">
-  </div>
-  <div class="float-container left" style="animation-delay:20s;">
-    <img src="images/left-float3.png" alt="">
-  </div>
-
-  <!-- Right floating images -->
-  <div class="float-container right" style="animation-delay:5s;">
-    <img src="images/right-float1.png" alt="">
-  </div>
-  <div class="float-container right" style="animation-delay:15s;">
-    <img src="images/right-float2.png" alt="">
-  </div>
-  <div class="float-container right" style="animation-delay:25s;">
-    <img src="images/right-float3.png" alt="">
-  </div>
-
   <h2 class="welcome">welcome</h2>
 
   <!-- Page Links + Image -->
