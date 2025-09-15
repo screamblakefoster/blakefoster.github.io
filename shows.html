@@ -140,7 +140,7 @@
       <div class="tour-item">
         <div class="tour-info">
           <div class="tour-date">October 5th</div>
-          <div class="tour-venue">Mercury Lounge(with Lenny Zenn)</div>
+          <div class="tour-venue">Mercury Lounge (with Lenny Zenn)</div>
           <div class="tour-city">New York, NY</div>
         </div>
         <a href="https://www.ticketmaster.com/lenny-zen-new-york-new-york-10-05-2025/event/0000630CD7C47043" class="ticket-btn">Tickets</a>
@@ -149,7 +149,7 @@
       <div class="tour-item">
         <div class="tour-info">
           <div class="tour-date">October 30th</div>
-          <div class="tour-venue">House Show #2(this ones gonna be fucking nuts)</div>
+          <div class="tour-venue">House Show #2</div>
           <div class="tour-city">???</div>
         </div>
         <a href="#" class="ticket-btn">Tickets</a>
@@ -162,40 +162,45 @@
   <footer>© 2025 Blake Foster</footer>
 
   <script>
-    // Parse month/day/year from the .tour-date text, compare to today, sort & remove past shows
     const monthMap = {
       january: 0, february: 1, march: 2, april: 3, may: 4, june: 5,
       july: 6, august: 7, september: 8, october: 9, november: 10, december: 11
     };
 
     function parseDate(text) {
-      // expecting like "September 27th 2025"
-      const parts = text.toLowerCase().replace(/(\d+)(st|nd|rd|th)/g, '$1').split(' ');
+      // Handles "September 27th" or "September 27th 2025"
+      const cleaned = text.toLowerCase().replace(/(\d+)(st|nd|rd|th)/g, '$1');
+      const parts = cleaned.trim().split(/\s+/);
       const month = monthMap[parts[0]];
       const day = parseInt(parts[1]);
-      const year = parts[2] ? parseInt(parts[2]) : new Date().getFullYear();
-      return new Date(year, month, day);
+      let year = parts[2] ? parseInt(parts[2]) : new Date().getFullYear();
+      let date = new Date(year, month, day);
+
+      // if we omitted year but the date is already past, assume next year
+      const today = new Date();
+      if (!parts[2] && date < today.setHours(0,0,0,0)) {
+        date = new Date(year + 1, month, day);
+      }
+      return date;
     }
 
     const today = new Date();
+    today.setHours(0,0,0,0);
     const tourList = document.querySelector('.tour-list');
     const items = Array.from(tourList.querySelectorAll('.tour-item'));
 
-    // Filter out past shows
     const futureItems = items.filter(item => {
       const dateText = item.querySelector('.tour-date').textContent.trim();
       const showDate = parseDate(dateText);
-      return showDate >= today.setHours(0,0,0,0);
+      return showDate >= today;
     });
 
-    // Sort upcoming shows by date
     futureItems.sort((a, b) => {
       const da = parseDate(a.querySelector('.tour-date').textContent.trim());
       const db = parseDate(b.querySelector('.tour-date').textContent.trim());
       return da - db;
     });
 
-    // Clear and re-append in order
     tourList.innerHTML = '';
     futureItems.forEach(item => tourList.appendChild(item));
   </script>
