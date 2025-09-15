@@ -160,5 +160,44 @@
   </main>
 
   <footer>© 2025 Blake Foster</footer>
+
+  <script>
+    // Parse month/day/year from the .tour-date text, compare to today, sort & remove past shows
+    const monthMap = {
+      january: 0, february: 1, march: 2, april: 3, may: 4, june: 5,
+      july: 6, august: 7, september: 8, october: 9, november: 10, december: 11
+    };
+
+    function parseDate(text) {
+      // expecting like "September 27th 2025"
+      const parts = text.toLowerCase().replace(/(\d+)(st|nd|rd|th)/g, '$1').split(' ');
+      const month = monthMap[parts[0]];
+      const day = parseInt(parts[1]);
+      const year = parts[2] ? parseInt(parts[2]) : new Date().getFullYear();
+      return new Date(year, month, day);
+    }
+
+    const today = new Date();
+    const tourList = document.querySelector('.tour-list');
+    const items = Array.from(tourList.querySelectorAll('.tour-item'));
+
+    // Filter out past shows
+    const futureItems = items.filter(item => {
+      const dateText = item.querySelector('.tour-date').textContent.trim();
+      const showDate = parseDate(dateText);
+      return showDate >= today.setHours(0,0,0,0);
+    });
+
+    // Sort upcoming shows by date
+    futureItems.sort((a, b) => {
+      const da = parseDate(a.querySelector('.tour-date').textContent.trim());
+      const db = parseDate(b.querySelector('.tour-date').textContent.trim());
+      return da - db;
+    });
+
+    // Clear and re-append in order
+    tourList.innerHTML = '';
+    futureItems.forEach(item => tourList.appendChild(item));
+  </script>
 </body>
 </html>
