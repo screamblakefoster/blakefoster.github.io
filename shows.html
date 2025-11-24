@@ -32,63 +32,10 @@
       margin-bottom: 2.5rem;
     }
 
-    .tour-list {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      font-size: 1.5rem;
-      width: 90%;
-      max-width: 800px;
-      text-align: left;
+    .announcement {
+      font-size: 1.6rem;
       margin-top: 2rem;
-    }
-
-    .tour-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 20px;
-      transition: background-color 0.3s;
-    }
-
-    .tour-item:hover {
-      background-color: #f7f7f7;
-    }
-
-    .tour-info {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .tour-date {
-      font-weight: bold;
-      margin-bottom: 2px;
-    }
-
-    .tour-venue {
-      font-size: 1.2rem;
-      font-weight: 600;
-    }
-
-    .tour-city {
-      font-size: 1rem;
-      color: #555;
-    }
-
-    .ticket-btn {
-      padding: 8px 16px;
-      font-size: 1rem;
-      font-weight: bold;
-      color: #fff;
-      background-color: #000;
-      border: none;
-      border-radius: 6px;
-      text-decoration: none;
-      transition: background-color 0.3s;
-    }
-
-    .ticket-btn:hover {
-      background-color: #14833b;
+      color: #333;
     }
 
     .back-home {
@@ -109,100 +56,19 @@
       font-size: 0.8rem;
       opacity: 0.5;
     }
-
-    @media (max-width: 600px) {
-      .tour-item {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-      }
-
-      .ticket-btn {
-        align-self: flex-start;
-      }
-    }
   </style>
 </head>
 <body>
   <main>
     <h1>Shows</h1>
 
-    <div class="tour-list">
-      <div class="tour-item">
-        <div class="tour-info">
-          <div class="tour-date">September 27th</div>
-          <div class="tour-venue">Asbury Park Porchfest</div>
-          <div class="tour-city">Asbury Park, NJ</div>
-        </div>
-        <a href="https://www.apporchfest.org/" class="ticket-btn">Tickets</a>
-      </div>
-
-      <div class="tour-item">
-        <div class="tour-info">
-          <div class="tour-date">October 5th</div>
-          <div class="tour-venue">Mercury Lounge (with Lenny Zenn)</div>
-          <div class="tour-city">New York, NY</div>
-        </div>
-        <a href="https://www.ticketmaster.com/lenny-zen-new-york-new-york-10-05-2025/event/0000630CD7C47043" class="ticket-btn">Tickets</a>
-      </div>
-
-      <div class="tour-item">
-        <div class="tour-info">
-          <div class="tour-date">November 18th</div>
-          <div class="tour-venue">Album Release Show</div>
-          <div class="tour-city">???</div>
-        </div>
-        <a href="#" class="ticket-btn">Tickets</a>
-      </div>
+    <div class="announcement">
+      New shows will be announced in 2026
     </div>
 
     <a href="index.html" class="back-home">Back to Home</a>
   </main>
 
   <footer>© 2025 Blake Foster</footer>
-
-  <script>
-    const monthMap = {
-      january: 0, february: 1, march: 2, april: 3, may: 4, june: 5,
-      july: 6, august: 7, september: 8, october: 9, november: 10, december: 11
-    };
-
-    function parseDate(text) {
-      // Handles "September 27th" or "September 27th 2025"
-      const cleaned = text.toLowerCase().replace(/(\d+)(st|nd|rd|th)/g, '$1');
-      const parts = cleaned.trim().split(/\s+/);
-      const month = monthMap[parts[0]];
-      const day = parseInt(parts[1]);
-      let year = parts[2] ? parseInt(parts[2]) : new Date().getFullYear();
-      let date = new Date(year, month, day);
-
-      // if we omitted year but the date is already past, assume next year
-      const today = new Date();
-      if (!parts[2] && date < today.setHours(0,0,0,0)) {
-        date = new Date(year + 1, month, day);
-      }
-      return date;
-    }
-
-    const today = new Date();
-    today.setHours(0,0,0,0);
-    const tourList = document.querySelector('.tour-list');
-    const items = Array.from(tourList.querySelectorAll('.tour-item'));
-
-    const futureItems = items.filter(item => {
-      const dateText = item.querySelector('.tour-date').textContent.trim();
-      const showDate = parseDate(dateText);
-      return showDate >= today;
-    });
-
-    futureItems.sort((a, b) => {
-      const da = parseDate(a.querySelector('.tour-date').textContent.trim());
-      const db = parseDate(b.querySelector('.tour-date').textContent.trim());
-      return da - db;
-    });
-
-    tourList.innerHTML = '';
-    futureItems.forEach(item => tourList.appendChild(item));
-  </script>
 </body>
 </html>
