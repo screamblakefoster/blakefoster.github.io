@@ -32,19 +32,6 @@
       margin-bottom: 3rem;
     }
 
-    /* FEATURED VIDEO */
-    .featured-video {
-      width: 95%;
-      max-width: 1000px;
-      margin-bottom: 3rem;
-    }
-
-    .featured-video iframe {
-      width: 100%;
-      height: 560px;
-      border: none;
-    }
-
     .video-list {
       display: flex;
       flex-direction: column;
@@ -79,10 +66,6 @@
     }
 
     @media (max-width: 600px) {
-      .featured-video iframe {
-        height: 250px;
-      }
-
       .video-list iframe {
         height: 250px;
       }
@@ -93,12 +76,10 @@
   <main>
     <h1>Videos</h1>
 
-    <!-- FEATURED VIDEO -->
-    <div class="featured-video">
-      <iframe src="https://www.youtube.com/embed/GXArXUEO8J0" title="City of God" allowfullscreen></iframe>
-    </div>
-
     <div class="video-list">
+
+      <!-- FEATURED VIDEO -->
+      <iframe src="https://www.youtube.com/embed/GXArXUEO8J0" title="City of God" allowfullscreen></iframe>
 
       <!-- NEW VIDEOS -->
       <iframe src="https://www.youtube.com/embed/A9Tdni4RkwU" title="New Video 1" allowfullscreen></iframe>
