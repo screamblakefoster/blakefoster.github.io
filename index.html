@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Blake Foster — Music</title>
 
   <style>
     :root {
-      --bg: #000;
-      --fg: #fff;
+      --bg: #000000;
+      --fg: #ffffff;
       --muted: #8c8c8c;
-      --line: #222;
     }
 
     * {
@@ -20,12 +20,13 @@
     html,
     body {
       margin: 0;
+      padding: 0;
       background: var(--bg);
       color: var(--fg);
     }
 
     body {
-      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
       font-weight: 400;
     }
 
@@ -34,25 +35,34 @@
       text-decoration: none;
     }
 
+    /* =========================
+       NAVIGATION
+       ========================= */
+
     header {
       width: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 24px 30px;
+
+      padding: 45px 30px 70px;
     }
 
     nav {
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 25px;
-      font-size: 15px;
+
+      gap: 42px;
+
+      font-size: 30px;
+      line-height: 1;
     }
 
     nav a {
-      color: #fff;
+      color: #ffffff;
       text-decoration: none;
+
       transition: opacity 0.2s ease;
     }
 
@@ -62,55 +72,60 @@
 
     nav a.active {
       opacity: 1;
+
       text-decoration: underline;
-      text-underline-offset: 5px;
+      text-underline-offset: 7px;
       text-decoration-thickness: 1px;
     }
 
+    /* =========================
+       MUSIC GRID
+       ========================= */
+
     main {
-      padding: 54px 30px 100px;
-    }
-
-    .intro {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      margin-bottom: 54px;
-    }
-
-    h1 {
-      font-size: clamp(42px, 6vw, 80px);
-      line-height: 0.9;
-      font-weight: 400;
-      margin: 0;
-      letter-spacing: -0.04em;
+      padding: 0 30px 100px;
     }
 
     .grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 58px 26px;
+      width: 100%;
       max-width: 1500px;
+
       margin: 0 auto;
+
+      display: grid;
+
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+
+      column-gap: 26px;
+      row-gap: 58px;
     }
 
     .song {
       display: block;
     }
 
+    /* Album / single artwork */
+
     .art {
       width: 100%;
-      aspect-ratio: 1;
-      background: #111;
+
+      aspect-ratio: 1 / 1;
+
+      background: #111111;
+
       overflow: hidden;
+
       margin-bottom: 16px;
     }
 
     .art img {
       width: 100%;
       height: 100%;
+
       object-fit: cover;
+
       display: block;
+
       transition: transform 0.45s ease;
     }
 
@@ -118,11 +133,15 @@
       transform: scale(1.025);
     }
 
+    /* Song information */
+
     .song-meta {
       display: flex;
+
       justify-content: space-between;
-      gap: 20px;
       align-items: baseline;
+
+      gap: 20px;
     }
 
     .song-title {
@@ -132,48 +151,90 @@
 
     .song-date {
       color: var(--muted);
+
       font-size: 12px;
+
       white-space: nowrap;
+
       text-transform: uppercase;
     }
 
     .song-type {
       color: var(--muted);
+
       font-size: 12px;
+
       margin-top: 7px;
     }
 
+    /* =========================
+       FOOTER
+       ========================= */
+
     footer {
       padding: 30px;
-      color: #666;
+
+      color: #666666;
+
       font-size: 11px;
     }
 
-    @media (max-width: 800px) {
+    /* =========================
+       TABLET
+       ========================= */
+
+    @media (max-width: 900px) {
+
       header {
-        padding: 20px 18px;
-        justify-content: center;
+        padding: 35px 20px 55px;
       }
 
       nav {
-        gap: 13px;
-        flex-wrap: wrap;
-        justify-content: center;
-        font-size: 12px;
+        gap: 28px;
+
+        font-size: 25px;
       }
 
       main {
-        padding: 35px 18px 70px;
+        padding: 0 20px 80px;
       }
 
-      .intro {
-        display: block;
-        margin-bottom: 38px;
+      .grid {
+        column-gap: 18px;
+        row-gap: 45px;
+      }
+
+    }
+
+    /* =========================
+       MOBILE
+       ========================= */
+
+    @media (max-width: 650px) {
+
+      header {
+        padding: 30px 18px 50px;
+      }
+
+      nav {
+        gap: 18px;
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+        font-size: 20px;
+      }
+
+      main {
+        padding: 0 18px 70px;
       }
 
       .grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 42px 14px;
+
+        column-gap: 14px;
+        row-gap: 42px;
       }
 
       .song-meta {
@@ -182,155 +243,469 @@
 
       .song-date {
         display: block;
+
         margin-top: 7px;
       }
 
-      footer {
-        padding: 20px 18px;
+      .song-title {
+        font-size: 16px;
       }
+
     }
 
-    @media (max-width: 500px) {
+    /* =========================
+       SMALL PHONE
+       ========================= */
+
+    @media (max-width: 450px) {
+
+      nav {
+        font-size: 18px;
+
+        gap: 15px;
+      }
+
       .grid {
         grid-template-columns: 1fr;
       }
+
+      .song-title {
+        font-size: 18px;
+      }
+
     }
+
   </style>
 </head>
 
 <body>
 
+
+  <!-- =========================
+       NAVIGATION
+       ========================= -->
+
   <header>
+
     <nav aria-label="Main navigation">
-      <a class="active" href="index.html" aria-current="page">Music</a>
-      <a href="shows.html">Shows</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-      <a href="shop.html">Shop</a>
+
+      <a
+        class="active"
+        href="index.html"
+        aria-current="page"
+      >
+        Music
+      </a>
+
+      <a href="shows.html">
+        Shows
+      </a>
+
+      <a href="about.html">
+        About
+      </a>
+
+      <a href="contact.html">
+        Contact
+      </a>
+
+      <a href="shop.html">
+        Shop
+      </a>
+
     </nav>
+
   </header>
+
+
+  <!-- =========================
+       MUSIC
+       ========================= -->
 
   <main>
 
     <section class="grid">
 
-      <a class="song" href="https://open.spotify.com/search/Blake%20Foster%20Like%20A%20Millionaire" target="_blank" rel="noopener">
+
+      <!-- 1. LIKE A MILLIONAIRE -->
+
+      <a
+        class="song"
+        href="https://open.spotify.com/search/Blake%20Foster%20Like%20A%20Millionaire"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
         <div class="art">
-          <img src="blake-pointing.JPG" alt="Like A Millionaire">
+
+          <img
+            src="blake-pointing.JPG"
+            alt="Like A Millionaire"
+          >
+
         </div>
+
         <div class="song-meta">
-          <span class="song-title">Like A Millionaire</span>
-          <span class="song-date">Apr 30, 2026</span>
+
+          <span class="song-title">
+            Like A Millionaire
+          </span>
+
+          <span class="song-date">
+            Apr 30, 2026
+          </span>
+
         </div>
-        <div class="song-type">Single</div>
+
+        <div class="song-type">
+          Single
+        </div>
+
       </a>
 
-      <a class="song" href="https://open.spotify.com/search/Blake%20Foster%20City%20of%20God" target="_blank" rel="noopener">
+
+      <!-- 2. CITY OF GOD -->
+
+      <a
+        class="song"
+        href="https://open.spotify.com/search/Blake%20Foster%20City%20of%20God"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
         <div class="art">
-          <img src="blake-pointing.JPG" alt="City of God">
+
+          <img
+            src="blake-pointing.JPG"
+            alt="City of God"
+          >
+
         </div>
+
         <div class="song-meta">
-          <span class="song-title">City of God</span>
-          <span class="song-date">Mar 5, 2026</span>
+
+          <span class="song-title">
+            City of God
+          </span>
+
+          <span class="song-date">
+            Mar 5, 2026
+          </span>
+
         </div>
-        <div class="song-type">Single</div>
+
+        <div class="song-type">
+          Single
+        </div>
+
       </a>
 
-      <a class="song" href="https://open.spotify.com/search/Blake%20Foster%20Something%20You%20Like" target="_blank" rel="noopener">
+
+      <!-- 3. SOMETHING YOU LIKE -->
+
+      <a
+        class="song"
+        href="https://open.spotify.com/search/Blake%20Foster%20Something%20You%20Like"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
         <div class="art">
-          <img src="blake-pointing.JPG" alt="Something You Like">
+
+          <img
+            src="blake-pointing.JPG"
+            alt="Something You Like"
+          >
+
         </div>
+
         <div class="song-meta">
-          <span class="song-title">Something You Like</span>
-          <span class="song-date">Nov 13, 2025</span>
+
+          <span class="song-title">
+            Something You Like
+          </span>
+
+          <span class="song-date">
+            Nov 13, 2025
+          </span>
+
         </div>
-        <div class="song-type">Single</div>
+
+        <div class="song-type">
+          Single
+        </div>
+
       </a>
 
-      <a class="song" href="https://open.spotify.com/search/Blake%20Foster%20No%20Fighting" target="_blank" rel="noopener">
+
+      <!-- 4. NO FIGHTING -->
+
+      <a
+        class="song"
+        href="https://open.spotify.com/search/Blake%20Foster%20No%20Fighting"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
         <div class="art">
-          <img src="blake-pointing.JPG" alt="No Fighting">
+
+          <img
+            src="blake-pointing.JPG"
+            alt="No Fighting"
+          >
+
         </div>
+
         <div class="song-meta">
-          <span class="song-title">No Fighting</span>
-          <span class="song-date">Oct 2, 2025</span>
+
+          <span class="song-title">
+            No Fighting
+          </span>
+
+          <span class="song-date">
+            Oct 2, 2025
+          </span>
+
         </div>
-        <div class="song-type">Single</div>
+
+        <div class="song-type">
+          Single
+        </div>
+
       </a>
 
-      <a class="song" href="https://open.spotify.com/search/Blake%20Foster%20Naked%20in%20the%20Rain" target="_blank" rel="noopener">
+
+      <!-- 5. NAKED IN THE RAIN -->
+
+      <a
+        class="song"
+        href="https://open.spotify.com/search/Blake%20Foster%20Naked%20in%20the%20Rain"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
         <div class="art">
-          <img src="blake-pointing.JPG" alt="Naked in the Rain">
+
+          <img
+            src="blake-pointing.JPG"
+            alt="Naked in the Rain"
+          >
+
         </div>
+
         <div class="song-meta">
-          <span class="song-title">Naked in the Rain</span>
-          <span class="song-date">Aug 14, 2025</span>
+
+          <span class="song-title">
+            Naked in the Rain
+          </span>
+
+          <span class="song-date">
+            Aug 14, 2025
+          </span>
+
         </div>
-        <div class="song-type">Single</div>
+
+        <div class="song-type">
+          Single
+        </div>
+
       </a>
 
-      <a class="song" href="https://open.spotify.com/search/Blake%20Foster%20Falling%20is%20so%20Easy" target="_blank" rel="noopener">
+
+      <!-- 6. FALLING IS SO EASY -->
+
+      <a
+        class="song"
+        href="https://open.spotify.com/search/Blake%20Foster%20Falling%20is%20so%20Easy"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
         <div class="art">
-          <img src="blake-pointing.JPG" alt="Falling is so Easy">
+
+          <img
+            src="blake-pointing.JPG"
+            alt="Falling is so Easy"
+          >
+
         </div>
+
         <div class="song-meta">
-          <span class="song-title">Falling is so Easy</span>
-          <span class="song-date">Jun 19, 2025</span>
+
+          <span class="song-title">
+            Falling is so Easy
+          </span>
+
+          <span class="song-date">
+            Jun 19, 2025
+          </span>
+
         </div>
-        <div class="song-type">Single</div>
+
+        <div class="song-type">
+          Single
+        </div>
+
       </a>
 
-      <a class="song" href="https://open.spotify.com/search/Blake%20Foster%20I%27m%20Watching%20Him" target="_blank" rel="noopener">
+
+      <!-- 7. I'M WATCHING HIM -->
+
+      <a
+        class="song"
+        href="https://open.spotify.com/search/Blake%20Foster%20I%27m%20Watching%20Him"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
         <div class="art">
-          <img src="blake-pointing.JPG" alt="I'm Watching Him">
+
+          <img
+            src="blake-pointing.JPG"
+            alt="I'm Watching Him"
+          >
+
         </div>
+
         <div class="song-meta">
-          <span class="song-title">I'm Watching Him</span>
-          <span class="song-date">May 8, 2025</span>
+
+          <span class="song-title">
+            I'm Watching Him
+          </span>
+
+          <span class="song-date">
+            May 8, 2025
+          </span>
+
         </div>
-        <div class="song-type">Single</div>
+
+        <div class="song-type">
+          Single
+        </div>
+
       </a>
 
-      <a class="song" href="https://open.spotify.com/search/Blake%20Foster%20Last%20Supper" target="_blank" rel="noopener">
+
+      <!-- 8. LAST SUPPER -->
+
+      <a
+        class="song"
+        href="https://open.spotify.com/search/Blake%20Foster%20Last%20Supper"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
         <div class="art">
-          <img src="blake-pointing.JPG" alt="Last Supper">
+
+          <img
+            src="blake-pointing.JPG"
+            alt="Last Supper"
+          >
+
         </div>
+
         <div class="song-meta">
-          <span class="song-title">Last Supper</span>
-          <span class="song-date">Feb 27, 2025</span>
+
+          <span class="song-title">
+            Last Supper
+          </span>
+
+          <span class="song-date">
+            Feb 27, 2025
+          </span>
+
         </div>
-        <div class="song-type">Single</div>
+
+        <div class="song-type">
+          Single
+        </div>
+
       </a>
 
-      <a class="song" href="https://open.spotify.com/search/Blake%20Foster%20Happiness%20Ain%27t%20Too%20Far" target="_blank" rel="noopener">
+
+      <!-- 9. HAPPINESS AIN'T TOO FAR -->
+
+      <a
+        class="song"
+        href="https://open.spotify.com/search/Blake%20Foster%20Happiness%20Ain%27t%20Too%20Far"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
         <div class="art">
-          <img src="blake-pointing.JPG" alt="Happiness Ain't Too Far">
+
+          <img
+            src="blake-pointing.JPG"
+            alt="Happiness Ain't Too Far"
+          >
+
         </div>
+
         <div class="song-meta">
-          <span class="song-title">Happiness Ain't Too Far</span>
-          <span class="song-date">Jan 23, 2025</span>
+
+          <span class="song-title">
+            Happiness Ain't Too Far
+          </span>
+
+          <span class="song-date">
+            Jan 23, 2025
+          </span>
+
         </div>
-        <div class="song-type">Single</div>
+
+        <div class="song-type">
+          Single
+        </div>
+
       </a>
 
-      <a class="song" href="https://open.spotify.com/search/Blake%20Foster%20Never%20Going%20Home" target="_blank" rel="noopener">
+
+      <!-- 10. NEVER GOING HOME -->
+
+      <a
+        class="song"
+        href="https://open.spotify.com/search/Blake%20Foster%20Never%20Going%20Home"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
         <div class="art">
-          <img src="blake-pointing.JPG" alt="Never Going Home">
+
+          <img
+            src="blake-pointing.JPG"
+            alt="Never Going Home"
+          >
+
         </div>
+
         <div class="song-meta">
-          <span class="song-title">Never Going Home</span>
-          <span class="song-date">Apr 26, 2024</span>
+
+          <span class="song-title">
+            Never Going Home
+          </span>
+
+          <span class="song-date">
+            Apr 26, 2024
+          </span>
+
         </div>
-        <div class="song-type">Album</div>
+
+        <div class="song-type">
+          Album
+        </div>
+
       </a>
+
 
     </section>
 
   </main>
 
+
   <footer>
     © 2026 Blake Foster
   </footer>
+
 
 </body>
 </html>
