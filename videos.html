@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Blake Foster — Videos</title>
+
+  <style>
+    :root {
+      --bg: #000000;
+      --fg: #ffffff;
+      --muted: #8c8c8c;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--fg);
+    }
+
+    body {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-weight: 400;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    header {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 55px 30px 75px;
+    }
+
+    .logo {
+      width: 190px;
+      height: auto;
+      display: block;
+      margin-bottom: 27.5px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 42px;
+      font-size: 30px;
+      line-height: 1;
+    }
+
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      transition: opacity 0.2s ease;
+    }
+
+    nav a:hover {
+      opacity: 0.55;
+    }
+
+    nav a.active {
+      opacity: 1;
+      text-decoration: underline;
+      text-underline-offset: 7px;
+      text-decoration-thickness: 1px;
+    }
+
+    main {
+      padding: 0 30px 100px;
+    }
+
+    .grid {
+      width: 100%;
+      max-width: 1500px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      column-gap: 26px;
+      row-gap: 58px;
+    }
+
+    .video {
+      display: block;
+    }
+
+    .thumbnail {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #111111;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .thumbnail img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.45s ease;
+    }
+
+    .video:hover .thumbnail img {
+      transform: scale(1.025);
+    }
+
+    .play-button {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 62px;
+      height: 62px;
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.45);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .play-button::after {
+      content: "";
+      width: 0;
+      height: 0;
+      border-top: 9px solid transparent;
+      border-bottom: 9px solid transparent;
+      border-left: 14px solid #ffffff;
+      margin-left: 4px;
+    }
+
+    .video:hover .play-button {
+      background: rgba(0, 0, 0, 0.7);
+      transform: translate(-50%, -50%) scale(1.08);
+    }
+
+    .video-number {
+      margin-top: 16px;
+      font-size: 18px;
+      line-height: 1.1;
+    }
+
+    footer {
+      padding: 30px;
+      color: #666666;
+      font-size: 11px;
+    }
+
+    @media (max-width: 900px) {
+      header {
+        padding: 45px 20px 60px;
+      }
+
+      .logo {
+        width: 165px;
+        margin-bottom: 22.5px;
+      }
+
+      nav {
+        gap: 28px;
+        font-size: 25px;
+      }
+
+      main {
+        padding: 0 20px 80px;
+      }
+
+      .grid {
+        column-gap: 18px;
+        row-gap: 45px;
+      }
+
+      .play-button {
+        width: 54px;
+        height: 54px;
+      }
+
+      .video-number {
+        font-size: 16px;
+      }
+    }
+
+    @media (max-width: 650px) {
+      header {
+        padding: 35px 18px 50px;
+      }
+
+      .logo {
+        width: 140px;
+        margin-bottom: 19px;
+      }
+
+      nav {
+        gap: 18px;
+        flex-wrap: wrap;
+        justify-content: center;
+        font-size: 20px;
+      }
+
+      main {
+        padding: 0 18px 70px;
+      }
+
+      .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        column-gap: 14px;
+        row-gap: 42px;
+      }
+
+      .play-button {
+        width: 46px;
+        height: 46px;
+      }
+
+      .play-button::after {
+        border-top-width: 7px;
+        border-bottom-width: 7px;
+        border-left-width: 11px;
+      }
+
+      .video-number {
+        font-size: 14px;
+        margin-top: 12px;
+      }
+    }
+
+    @media (max-width: 450px) {
+      .logo {
+        width: 120px;
+        margin-bottom: 15px;
+      }
+
+      nav {
+        font-size: 18px;
+        gap: 15px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .video-number {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <img
+      class="logo"
+      src="transparent-white-mask.png"
+      alt="Blake Foster"
+    >
+
+    <nav aria-label="Main navigation">
+      <a href="index.html">Music</a>
+      <a href="shows.html">Shows</a>
+      <a href="about.html">About</a>
+      <a class="active" href="videos.html" aria-current="page">Videos</a>
+      <a href="shop.html">Shop</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="grid">
+
+      <a class="video" href="https://www.youtube.com/watch?v=vGaR2iwrPcc" target="_blank" rel="noopener noreferrer">
+        <div class="thumbnail">
+          <img src="https://i.ytimg.com/vi/vGaR2iwrPcc/hqdefault.jpg" alt="Blake Foster video">
+          <div class="play-button"></div>
+        </div>
+        <div class="video-number">Video 01</div>
+      </a>
+
+      <a class="video" href="https://www.youtube.com/watch?v=GXArXUEO8J0" target="_blank" rel="noopener noreferrer">
+        <div class="thumbnail">
+          <img src="https://i.ytimg.com/vi/GXArXUEO8J0/hqdefault.jpg" alt="Blake Foster video">
+          <div class="play-button"></div>
+        </div>
+        <div class="video-number">Video 02</div>
+      </a>
+
+      <a class="video" href="https://www.youtube.com/watch?v=TCz7GBlKU38" target="_blank" rel="noopener noreferrer">
+        <div class="thumbnail">
+          <img src="https://i.ytimg.com/vi/TCz7GBlKU38/hqdefault.jpg" alt="Blake Foster video">
+          <div class="play-button"></div>
+        </div>
+        <div class="video-number">Video 03</div>
+      </a>
+
+      <a class="video" href="https://www.youtube.com/watch?v=A9Tdni4RkwU" target="_blank" rel="noopener noreferrer">
+        <div class="thumbnail">
+          <img src="https://i.ytimg.com/vi/A9Tdni4RkwU/hqdefault.jpg" alt="Blake Foster video">
+          <div class="play-button"></div>
+        </div>
+        <div class="video-number">Video 04</div>
+      </a>
+
+      <a class="video" href="https://www.youtube.com/watch?v=orH2CSNCxoI" target="_blank" rel="noopener noreferrer">
+        <div class="thumbnail">
+          <img src="https://i.ytimg.com/vi/orH2CSNCxoI/hqdefault.jpg" alt="Blake Foster video">
+          <div class="play-button"></div>
+        </div>
+        <div class="video-number">Video 05</div>
+      </a>
+
+      <a class="video" href="https://www.youtube.com/watch?v=PRKTwr0ckN0" target="_blank" rel="noopener noreferrer">
+        <div class="thumbnail">
+          <img src="https://i.ytimg.com/vi/PRKTwr0ckN0/hqdefault.jpg" alt="Blake Foster video">
+          <div class="play-button"></div>
+        </div>
+        <div class="video-number">Video 06</div>
+      </a>
+
+      <a class="video" href="https://www.youtube.com/watch?v=6M6ljwJLdy8" target="_blank" rel="noopener noreferrer">
+        <div class="thumbnail">
+          <img src="https://i.ytimg.com/vi/6M6ljwJLdy8/hqdefault.jpg" alt="Blake Foster video">
+          <div class="play-button"></div>
+        </div>
+        <div class="video-number">Video 07</div>
+      </a>
+
+      <a class="video" href="https://www.youtube.com/watch?v=HrGDso5a0e4" target="_blank" rel="noopener noreferrer">
+        <div class="thumbnail">
+          <img src="https://i.ytimg.com/vi/HrGDso5a0e4/hqdefault.jpg" alt="Blake Foster video">
+          <div class="play-button"></div>
+        </div>
+        <div class="video-number">Video 08</div>
+      </a>
+
+      <a class="video" href="https://www.youtube.com/watch?v=Dza9CqK5Nqc" target="_blank" rel="noopener noreferrer">
+        <div class="thumbnail">
+          <img src="https://i.ytimg.com/vi/Dza9CqK5Nqc/hqdefault.jpg" alt="Blake Foster video">
+          <div class="play-button"></div>
+        </div>
+        <div class="video-number">Video 09</div>
+      </a>
+
+      <a class="video" href="https://www.youtube.com/watch?v=lLY2-ByQN5Y" target="_blank" rel="noopener noreferrer">
+        <div class="thumbnail">
+          <img src="https://i.ytimg.com/vi/lLY2-ByQN5Y/hqdefault.jpg" alt="Blake Foster video">
+          <div class="play-button"></div>
+        </div>
+        <div class="video-number">Video 10</div>
+      </a>
+
+      <a class="video" href="https://www.youtube.com/watch?v=hf9YuVds3nY" target="_blank" rel="noopener noreferrer">
+        <div class="thumbnail">
+          <img src="https://i.ytimg.com/vi/hf9YuVds3nY/hqdefault.jpg" alt="Blake Foster video">
+          <div class="play-button"></div>
+        </div>
+        <div class="video-number">Video 11</div>
+      </a>
+
+      <a class="video" href="https://www.youtube.com/watch?v=J56peQcEjWY&t=62s" target="_blank" rel="noopener noreferrer">
+        <div class="thumbnail">
+          <img src="https://i.ytimg.com/vi/J56peQcEjWY/hqdefault.jpg" alt="Blake Foster video">
+          <div class="play-button"></div>
+        </div>
+        <div class="video-number">Video 12</div>
+      </a>
+
+      <a class="video" href="https://www.youtube.com/watch?v=Zp0WJeYzJwk" target="_blank" rel="noopener noreferrer">
+        <div class="thumbnail">
+          <img src="https://i.ytimg.com/vi/Zp0WJeYzJwk/hqdefault.jpg" alt="Blake Foster video">
+          <div class="play-button"></div>
+        </div>
+        <div class="video-number">Video 13</div>
+      </a>
+
+      <a class="video" href="https://www.youtube.com/watch?v=eeuLcGGg2UE" target="_blank" rel="noopener noreferrer">
+        <div class="thumbnail">
+          <img src="https://i.ytimg.com/vi/eeuLcGGg2UE/hqdefault.jpg" alt="Blake Foster video">
+          <div class="play-button"></div>
+        </div>
+        <div class="video-number">Video 14</div>
+      </a>
+
+      <a class="video" href="https://www.youtube.com/watch?v=sCWWTvYixOI" target="_blank" rel="noopener noreferrer">
+        <div class="thumbnail">
+          <img src="https://i.ytimg.com/vi/sCWWTvYixOI/hqdefault.jpg" alt="Blake Foster video">
+          <div class="play-button"></div>
+        </div>
+        <div class="video-number">Video 15</div>
+      </a>
+
+      <a class="video" href="https://www.youtube.com/watch?v=YLZ8Xal7izs" target="_blank" rel="noopener noreferrer">
+        <div class="thumbnail">
+          <img src="https://i.ytimg.com/vi/YLZ8Xal7izs/hqdefault.jpg" alt="Blake Foster video">
+          <div class="play-button"></div>
+        </div>
+        <div class="video-number">Video 16</div>
+      </a>
+
+    </section>
+  </main>
+
+  <footer>
+    © 2026 Blake Foster
+  </footer>
+
+</body>
+</html>
