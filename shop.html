@@ -10,6 +10,7 @@
     :root {
       --bg: #000000;
       --fg: #ffffff;
+      --muted: #8c8c8c;
     }
 
     * {
@@ -85,26 +86,39 @@
 
     main {
       min-height: 45vh;
-
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
-
       padding: 0 30px 100px;
-
       text-align: center;
     }
 
     .shirt-container {
-      width: min(400px, 80vw);
-      margin-bottom: 35px;
+      width: min(420px, 72vw);
+      margin: 10px auto 35px;
+      transform-origin: 50% 0%;
+      animation: shirtSwing 3.2s ease-in-out infinite alternate;
     }
 
     .shirt-container img {
       width: 100%;
       height: auto;
       display: block;
+    }
+
+    @keyframes shirtSwing {
+      0% {
+        transform: rotate(-7deg);
+      }
+
+      50% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(7deg);
+      }
     }
 
     .coming-soon {
@@ -127,7 +141,6 @@
        ========================= */
 
     @media (max-width: 900px) {
-
       header {
         padding: 45px 20px 60px;
       }
@@ -160,7 +173,6 @@
        ========================= */
 
     @media (max-width: 650px) {
-
       header {
         padding: 35px 18px 50px;
       }
@@ -183,6 +195,7 @@
 
       .shirt-container {
         width: min(300px, 80vw);
+        margin-top: 5px;
         margin-bottom: 28px;
       }
 
@@ -196,7 +209,6 @@
        ========================= */
 
     @media (max-width: 450px) {
-
       .logo {
         width: 120px;
         margin-bottom: 15px;
@@ -216,15 +228,16 @@
       }
     }
 
+    /* Respect reduced-motion preferences */
+    @media (prefers-reduced-motion: reduce) {
+      .shirt-container {
+        animation: none;
+      }
+    }
   </style>
 </head>
 
 <body>
-
-
-  <!-- =========================
-       LOGO + NAVIGATION
-       ========================= -->
 
   <header>
 
@@ -264,11 +277,6 @@
 
   </header>
 
-
-  <!-- =========================
-       SHOP
-       ========================= -->
-
   <main>
 
     <div class="shirt-container">
@@ -286,11 +294,9 @@
 
   </main>
 
-
   <footer>
     © 2026 Blake Foster
   </footer>
-
 
 </body>
 </html>
