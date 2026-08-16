@@ -34,6 +34,10 @@
       text-decoration: none;
     }
 
+    /* =========================
+       LOGO + NAVIGATION
+       ========================= */
+
     header {
       width: 100%;
       display: flex;
@@ -75,6 +79,10 @@
       text-decoration-thickness: 1px;
     }
 
+    /* =========================
+       ABOUT
+       ========================= */
+
     main {
       max-width: 1100px;
       margin: 0 auto;
@@ -87,13 +95,22 @@
       color: #ffffff;
     }
 
+    /* =========================
+       FOOTER
+       ========================= */
+
     footer {
       padding: 30px;
       color: #666666;
       font-size: 11px;
     }
 
+    /* =========================
+       TABLET
+       ========================= */
+
     @media (max-width: 900px) {
+
       header {
         padding: 45px 20px 60px;
       }
@@ -117,7 +134,12 @@
       }
     }
 
+    /* =========================
+       MOBILE
+       ========================= */
+
     @media (max-width: 650px) {
+
       header {
         padding: 35px 18px 50px;
       }
@@ -144,7 +166,12 @@
       }
     }
 
+    /* =========================
+       SMALL PHONE
+       ========================= */
+
     @media (max-width: 450px) {
+
       .logo {
         width: 120px;
         margin-bottom: 15px;
@@ -159,12 +186,19 @@
         font-size: 18px;
       }
     }
+
   </style>
 </head>
 
 <body>
 
+
+  <!-- =========================
+       LOGO + NAVIGATION
+       ========================= -->
+
   <header>
+
     <img
       class="logo"
       src="transparent-white-mask.png"
@@ -172,17 +206,43 @@
     >
 
     <nav aria-label="Main navigation">
-      <a href="index.html">Music</a>
-      <a href="shows.html">Shows</a>
-      <a class="active" href="about.html" aria-current="page">About</a>
-      <a href="videos.html">Contact</a>
-      <a href="shop.html">Shop</a>
+
+      <a href="index.html">
+        Music
+      </a>
+
+      <a href="shows.html">
+        Shows
+      </a>
+
+      <a
+        class="active"
+        href="about.html"
+        aria-current="page"
+      >
+        About
+      </a>
+
+      <a href="videos.html">
+        Videos
+      </a>
+
+      <a href="shop.html">
+        Shop
+      </a>
+
     </nav>
+
   </header>
 
+
+  <!-- =========================
+       ABOUT / LIFE STORY
+       ========================= -->
+
   <main>
+
     <div class="story">
-      blah blah blah blah blah blah blah blah blah blah
 
       blah blah blah blah blah blah blah blah blah blah
 
@@ -191,12 +251,18 @@
       blah blah blah blah blah blah blah blah blah blah
 
       blah blah blah blah blah blah blah blah blah blah
+
+      blah blah blah blah blah blah blah blah blah blah
+
     </div>
+
   </main>
+
 
   <footer>
     © 2026 Blake Foster
   </footer>
+
 
 </body>
 </html>
