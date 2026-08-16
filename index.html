@@ -4,39 +4,116 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Blake Foster — Music</title>
-  <link rel="icon" href="favicon.png" type="image/png">
-  <link rel="stylesheet" href="style.css">
+  <style>
+    :root { --bg:#000; --fg:#fff; --muted:#8c8c8c; --line:#222; }
+    * { box-sizing:border-box; }
+    html, body { margin:0; background:var(--bg); color:var(--fg); }
+    body { font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-weight:400; }
+    a { color:inherit; text-decoration:none; }
+    header { display:flex; justify-content:space-between; align-items:center; padding:24px 30px; }
+    .brand { font-size:15px; letter-spacing:.01em; }
+    nav { display:flex; gap:25px; font-size:15px; }
+    nav a { transition:opacity .2s ease; }
+    nav a:hover, nav a.active { opacity:.45; }
+    main { padding:54px 30px 100px; }
+    .intro { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:54px; }
+    h1 { font-size:clamp(42px,6vw,80px); line-height:.9; font-weight:400; margin:0; letter-spacing:-.04em; }
+    .spotify-link { font-size:13px; text-transform:uppercase; letter-spacing:.08em; border-bottom:1px solid #fff; padding-bottom:5px; }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:58px 26px; max-width:1500px; margin:0 auto; }
+    .song { display:block; }
+    .art { width:100%; aspect-ratio:1; background:#111; overflow:hidden; margin-bottom:16px; }
+    .art img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .45s ease; }
+    .song:hover .art img { transform:scale(1.025); }
+    .song-meta { display:flex; justify-content:space-between; gap:20px; align-items:baseline; }
+    .song-title { font-size:18px; line-height:1.1; }
+    .song-date { color:var(--muted); font-size:12px; white-space:nowrap; text-transform:uppercase; }
+    .song-type { color:var(--muted); font-size:12px; margin-top:7px; }
+    footer { padding:30px; color:#666; font-size:11px; }
+    @media(max-width:800px){
+      header { padding:20px 18px; align-items:flex-start; }
+      nav { gap:13px; flex-wrap:wrap; justify-content:flex-end; font-size:12px; }
+      main { padding:35px 18px 70px; }
+      .intro { display:block; margin-bottom:38px; }
+      .spotify-link { display:inline-block; margin-top:25px; }
+      .grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:42px 14px; }
+      .song-meta { display:block; }
+      .song-date { display:block; margin-top:7px; }
+      footer { padding:20px 18px; }
+    }
+    @media(max-width:500px){ .grid { grid-template-columns:1fr; } }
+  </style>
 </head>
 <body>
-<header class="site-header">
-  <a class="site-name" href="index.html">Blake Foster</a>
-  <nav class="site-nav" aria-label="Main navigation">
-    <a href="index.html" class="active">Music</a>
-    <a href="videos.html">Videos</a>
-    <a href="shows.html">Shows</a>
-    <a href="shop.html">Shop</a>
-  </nav>
-</header>
-<main class="music-page">
-  <h1 class="page-title">Music</h1>
+  <header>
+    <a class="brand" href="index.html">Blake Foster</a>
+    <nav>
+      <a class="active" href="index.html">Music</a>
+      <a href="shows.html">Shows</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="shop.html">Shop</a>
+    </nav>
+  </header>
 
-  <section class="latest-release">
-    <div>
-      <img class="release-image" src="blake-pointing.JPG" alt="Blake Foster">
+  <main>
+    <div class="intro">
+      <h1>Music</h1>
+      <a class="spotify-link" href="https://open.spotify.com/artist/3pKKxzrrTw8EeCowKnmrOU" target="_blank" rel="noopener">Open Spotify</a>
     </div>
-    <div class="release-info">
-      <div class="release-label">Listen now</div>
-      <h2 class="release-title">Blake Foster</h2>
-      <div class="music-links">
-        <a href="https://open.spotify.com/artist/3pKKxzrrTw8EeCowKnmrOU?si=BG-rJ2t4T_mgPr0R040Teg" target="_blank" rel="noopener noreferrer">Spotify</a>
-        <a href="https://music.apple.com/us/artist/blake-foster/1439072791" target="_blank" rel="noopener noreferrer">Apple Music</a>
-        <a href="https://www.youtube.com/@screamblakefoster" target="_blank" rel="noopener noreferrer">YouTube</a>
-        <a href="https://soundcloud.com/lakeblake" target="_blank" rel="noopener noreferrer">SoundCloud</a>
-        <a href="https://untitled.stream/library/project/4QfbGCxPnN0wS58PYhZTQ" target="_blank" rel="noopener noreferrer">Demos</a>
-      </div>
-    </div>
-  </section>
-</main>
-<footer>© 2026 Blake Foster</footer>
+
+    <section class="grid">
+      <a class="song" href="https://open.spotify.com/search/Blake%20Foster%20Like%20A%20Millionaire" target="_blank" rel="noopener">
+        <div class="art"><img src="blake-pointing.JPG" alt="Like A Millionaire"></div>
+        <div class="song-meta"><span class="song-title">Like A Millionaire</span><span class="song-date">Apr 30, 2026</span></div>
+        <div class="song-type">Single</div>
+      </a>
+      <a class="song" href="https://open.spotify.com/search/Blake%20Foster%20City%20of%20God" target="_blank" rel="noopener">
+        <div class="art"><img src="blake-pointing.JPG" alt="City of God"></div>
+        <div class="song-meta"><span class="song-title">City of God</span><span class="song-date">Mar 5, 2026</span></div>
+        <div class="song-type">Single</div>
+      </a>
+      <a class="song" href="https://open.spotify.com/search/Blake%20Foster%20Something%20You%20Like" target="_blank" rel="noopener">
+        <div class="art"><img src="blake-pointing.JPG" alt="Something You Like"></div>
+        <div class="song-meta"><span class="song-title">Something You Like</span><span class="song-date">Nov 13, 2025</span></div>
+        <div class="song-type">Single</div>
+      </a>
+      <a class="song" href="https://open.spotify.com/search/Blake%20Foster%20No%20Fighting" target="_blank" rel="noopener">
+        <div class="art"><img src="blake-pointing.JPG" alt="No Fighting"></div>
+        <div class="song-meta"><span class="song-title">No Fighting</span><span class="song-date">Oct 2, 2025</span></div>
+        <div class="song-type">Single</div>
+      </a>
+      <a class="song" href="https://open.spotify.com/search/Blake%20Foster%20Naked%20in%20the%20Rain" target="_blank" rel="noopener">
+        <div class="art"><img src="blake-pointing.JPG" alt="Naked in the Rain"></div>
+        <div class="song-meta"><span class="song-title">Naked in the Rain</span><span class="song-date">Aug 14, 2025</span></div>
+        <div class="song-type">Single</div>
+      </a>
+      <a class="song" href="https://open.spotify.com/search/Blake%20Foster%20Falling%20is%20so%20Easy" target="_blank" rel="noopener">
+        <div class="art"><img src="blake-pointing.JPG" alt="Falling is so Easy"></div>
+        <div class="song-meta"><span class="song-title">Falling is so Easy</span><span class="song-date">Jun 19, 2025</span></div>
+        <div class="song-type">Single</div>
+      </a>
+      <a class="song" href="https://open.spotify.com/search/Blake%20Foster%20I%27m%20Watching%20Him" target="_blank" rel="noopener">
+        <div class="art"><img src="blake-pointing.JPG" alt="I'm Watching Him"></div>
+        <div class="song-meta"><span class="song-title">I'm Watching Him</span><span class="song-date">May 8, 2025</span></div>
+        <div class="song-type">Single</div>
+      </a>
+      <a class="song" href="https://open.spotify.com/search/Blake%20Foster%20Last%20Supper" target="_blank" rel="noopener">
+        <div class="art"><img src="blake-pointing.JPG" alt="Last Supper"></div>
+        <div class="song-meta"><span class="song-title">Last Supper</span><span class="song-date">Feb 27, 2025</span></div>
+        <div class="song-type">Single</div>
+      </a>
+      <a class="song" href="https://open.spotify.com/search/Blake%20Foster%20Happiness%20Ain%27t%20Too%20Far" target="_blank" rel="noopener">
+        <div class="art"><img src="blake-pointing.JPG" alt="Happiness Ain't Too Far"></div>
+        <div class="song-meta"><span class="song-title">Happiness Ain't Too Far</span><span class="song-date">Jan 23, 2025</span></div>
+        <div class="song-type">Single</div>
+      </a>
+      <a class="song" href="https://open.spotify.com/search/Blake%20Foster%20Never%20Going%20Home" target="_blank" rel="noopener">
+        <div class="art"><img src="blake-pointing.JPG" alt="Never Going Home"></div>
+        <div class="song-meta"><span class="song-title">Never Going Home</span><span class="song-date">Apr 26, 2024</span></div>
+        <div class="song-type">Album</div>
+      </a>
+    </section>
+  </main>
+  <footer>© 2026 Blake Foster</footer>
 </body>
 </html>
