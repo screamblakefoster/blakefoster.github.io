@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Blake Foster — About</title>
+
+  <style>
+    :root {
+      --bg: #000000;
+      --fg: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--fg);
+    }
+
+    body {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-weight: 400;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    header {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 55px 30px 75px;
+    }
+
+    .logo {
+      width: 190px;
+      height: auto;
+      display: block;
+      margin-bottom: 27.5px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 42px;
+      font-size: 30px;
+      line-height: 1;
+    }
+
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      transition: opacity 0.2s ease;
+    }
+
+    nav a:hover {
+      opacity: 0.55;
+    }
+
+    nav a.active {
+      opacity: 1;
+      text-decoration: underline;
+      text-underline-offset: 7px;
+      text-decoration-thickness: 1px;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 30px 100px;
+    }
+
+    .story {
+      font-size: 24px;
+      line-height: 1.35;
+      color: #ffffff;
+    }
+
+    footer {
+      padding: 30px;
+      color: #666666;
+      font-size: 11px;
+    }
+
+    @media (max-width: 900px) {
+      header {
+        padding: 45px 20px 60px;
+      }
+
+      .logo {
+        width: 165px;
+        margin-bottom: 22.5px;
+      }
+
+      nav {
+        gap: 28px;
+        font-size: 25px;
+      }
+
+      main {
+        padding: 0 20px 80px;
+      }
+
+      .story {
+        font-size: 22px;
+      }
+    }
+
+    @media (max-width: 650px) {
+      header {
+        padding: 35px 18px 50px;
+      }
+
+      .logo {
+        width: 140px;
+        margin-bottom: 19px;
+      }
+
+      nav {
+        gap: 18px;
+        flex-wrap: wrap;
+        justify-content: center;
+        font-size: 20px;
+      }
+
+      main {
+        padding: 0 18px 70px;
+      }
+
+      .story {
+        font-size: 19px;
+        line-height: 1.4;
+      }
+    }
+
+    @media (max-width: 450px) {
+      .logo {
+        width: 120px;
+        margin-bottom: 15px;
+      }
+
+      nav {
+        font-size: 18px;
+        gap: 15px;
+      }
+
+      .story {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <img
+      class="logo"
+      src="transparent-white-mask.png"
+      alt="Blake Foster"
+    >
+
+    <nav aria-label="Main navigation">
+      <a href="index.html">Music</a>
+      <a href="shows.html">Shows</a>
+      <a class="active" href="about.html" aria-current="page">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="shop.html">Shop</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="story">
+      blah blah blah blah blah blah blah blah blah blah
+
+      blah blah blah blah blah blah blah blah blah blah
+
+      blah blah blah blah blah blah blah blah blah blah
+
+      blah blah blah blah blah blah blah blah blah blah
+
+      blah blah blah blah blah blah blah blah blah blah
+    </div>
+  </main>
+
+  <footer>
+    © 2026 Blake Foster
+  </footer>
+
+</body>
+</html>
