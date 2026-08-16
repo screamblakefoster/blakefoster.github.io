@@ -35,6 +35,10 @@
       text-decoration: none;
     }
 
+    /* =========================
+       LOGO + NAVIGATION
+       ========================= */
+
     header {
       width: 100%;
       display: flex;
@@ -76,6 +80,10 @@
       text-decoration-thickness: 1px;
     }
 
+    /* =========================
+       VIDEO GRID
+       ========================= */
+
     main {
       padding: 0 30px 100px;
     }
@@ -84,8 +92,10 @@
       width: 100%;
       max-width: 1500px;
       margin: 0 auto;
+
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
+
       column-gap: 26px;
       row-gap: 58px;
     }
@@ -97,16 +107,20 @@
     .thumbnail {
       width: 100%;
       aspect-ratio: 16 / 9;
+
       background: #111111;
       overflow: hidden;
+
       position: relative;
     }
 
     .thumbnail img {
       width: 100%;
       height: 100%;
+
       object-fit: cover;
       display: block;
+
       transition: transform 0.45s ease;
     }
 
@@ -114,29 +128,45 @@
       transform: scale(1.025);
     }
 
+    /* =========================
+       PLAY BUTTON
+       ========================= */
+
     .play-button {
       position: absolute;
+
       left: 50%;
       top: 50%;
+
       transform: translate(-50%, -50%);
+
       width: 62px;
       height: 62px;
+
       border: 1px solid rgba(255, 255, 255, 0.9);
       border-radius: 50%;
+
       background: rgba(0, 0, 0, 0.45);
+
       display: flex;
       justify-content: center;
       align-items: center;
-      transition: background 0.2s ease, transform 0.2s ease;
+
+      transition:
+        background 0.2s ease,
+        transform 0.2s ease;
     }
 
     .play-button::after {
       content: "";
+
       width: 0;
       height: 0;
+
       border-top: 9px solid transparent;
       border-bottom: 9px solid transparent;
       border-left: 14px solid #ffffff;
+
       margin-left: 4px;
     }
 
@@ -145,11 +175,20 @@
       transform: translate(-50%, -50%) scale(1.08);
     }
 
-    .video-number {
+    /* =========================
+       VIDEO TITLES
+       ========================= */
+
+    .video-title {
       margin-top: 16px;
+
       font-size: 18px;
       line-height: 1.1;
     }
+
+    /* =========================
+       FOOTER
+       ========================= */
 
     footer {
       padding: 30px;
@@ -157,7 +196,12 @@
       font-size: 11px;
     }
 
+    /* =========================
+       TABLET
+       ========================= */
+
     @media (max-width: 900px) {
+
       header {
         padding: 45px 20px 60px;
       }
@@ -186,12 +230,17 @@
         height: 54px;
       }
 
-      .video-number {
+      .video-title {
         font-size: 16px;
       }
     }
 
+    /* =========================
+       MOBILE
+       ========================= */
+
     @media (max-width: 650px) {
+
       header {
         padding: 35px 18px 50px;
       }
@@ -229,13 +278,18 @@
         border-left-width: 11px;
       }
 
-      .video-number {
+      .video-title {
         font-size: 14px;
         margin-top: 12px;
       }
     }
 
+    /* =========================
+       SMALL PHONE
+       ========================= */
+
     @media (max-width: 450px) {
+
       .logo {
         width: 120px;
         margin-bottom: 15px;
@@ -250,16 +304,23 @@
         grid-template-columns: 1fr;
       }
 
-      .video-number {
+      .video-title {
         font-size: 18px;
       }
     }
+
   </style>
 </head>
 
 <body>
 
+
+  <!-- =========================
+       LOGO + NAVIGATION
+       ========================= -->
+
   <header>
+
     <img
       class="logo"
       src="transparent-white-mask.png"
@@ -267,151 +328,486 @@
     >
 
     <nav aria-label="Main navigation">
-      <a href="index.html">Music</a>
-      <a href="shows.html">Shows</a>
-      <a href="about.html">About</a>
-      <a class="active" href="videos.html" aria-current="page">Videos</a>
-      <a href="shop.html">Shop</a>
+
+      <a href="index.html">
+        Music
+      </a>
+
+      <a href="shows.html">
+        Shows
+      </a>
+
+      <a href="about.html">
+        About
+      </a>
+
+      <a
+        class="active"
+        href="videos.html"
+        aria-current="page"
+      >
+        Videos
+      </a>
+
+      <a href="shop.html">
+        Shop
+      </a>
+
     </nav>
+
   </header>
 
+
+  <!-- =========================
+       VIDEOS
+       ========================= -->
+
   <main>
+
     <section class="grid">
 
-      <a class="video" href="https://www.youtube.com/watch?v=vGaR2iwrPcc" target="_blank" rel="noopener noreferrer">
+
+      <!-- VIDEO 1 -->
+
+      <a
+        class="video"
+        href="https://www.youtube.com/watch?v=vGaR2iwrPcc"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
         <div class="thumbnail">
-          <img src="https://i.ytimg.com/vi/vGaR2iwrPcc/hqdefault.jpg" alt="Blake Foster video">
+
+          <img
+            src="https://i.ytimg.com/vi/vGaR2iwrPcc/hqdefault.jpg"
+            alt="Like a Millionaire"
+          >
+
           <div class="play-button"></div>
+
         </div>
-        <div class="video-number">Video 01</div>
+
+        <div class="video-title">
+          Like a Millionaire
+        </div>
+
       </a>
 
-      <a class="video" href="https://www.youtube.com/watch?v=GXArXUEO8J0" target="_blank" rel="noopener noreferrer">
+
+      <!-- VIDEO 2 -->
+
+      <a
+        class="video"
+        href="https://www.youtube.com/watch?v=GXArXUEO8J0"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
         <div class="thumbnail">
-          <img src="https://i.ytimg.com/vi/GXArXUEO8J0/hqdefault.jpg" alt="Blake Foster video">
+
+          <img
+            src="https://i.ytimg.com/vi/GXArXUEO8J0/hqdefault.jpg"
+            alt="City of God"
+          >
+
           <div class="play-button"></div>
+
         </div>
-        <div class="video-number">Video 02</div>
+
+        <div class="video-title">
+          City of God
+        </div>
+
       </a>
 
-      <a class="video" href="https://www.youtube.com/watch?v=TCz7GBlKU38" target="_blank" rel="noopener noreferrer">
+
+      <!-- VIDEO 3 -->
+
+      <a
+        class="video"
+        href="https://www.youtube.com/watch?v=TCz7GBlKU38"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
         <div class="thumbnail">
-          <img src="https://i.ytimg.com/vi/TCz7GBlKU38/hqdefault.jpg" alt="Blake Foster video">
+
+          <img
+            src="https://i.ytimg.com/vi/TCz7GBlKU38/hqdefault.jpg"
+            alt="November 2025"
+          >
+
           <div class="play-button"></div>
+
         </div>
-        <div class="video-number">Video 03</div>
+
+        <div class="video-title">
+          November 2025
+        </div>
+
       </a>
 
-      <a class="video" href="https://www.youtube.com/watch?v=A9Tdni4RkwU" target="_blank" rel="noopener noreferrer">
+
+      <!-- VIDEO 4 -->
+
+      <a
+        class="video"
+        href="https://www.youtube.com/watch?v=A9Tdni4RkwU"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
         <div class="thumbnail">
-          <img src="https://i.ytimg.com/vi/A9Tdni4RkwU/hqdefault.jpg" alt="Blake Foster video">
+
+          <img
+            src="https://i.ytimg.com/vi/A9Tdni4RkwU/hqdefault.jpg"
+            alt="Something You Like"
+          >
+
           <div class="play-button"></div>
+
         </div>
-        <div class="video-number">Video 04</div>
+
+        <div class="video-title">
+          Something You Like
+        </div>
+
       </a>
 
-      <a class="video" href="https://www.youtube.com/watch?v=orH2CSNCxoI" target="_blank" rel="noopener noreferrer">
+
+      <!-- VIDEO 5 -->
+
+      <a
+        class="video"
+        href="https://www.youtube.com/watch?v=orH2CSNCxoI"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
         <div class="thumbnail">
-          <img src="https://i.ytimg.com/vi/orH2CSNCxoI/hqdefault.jpg" alt="Blake Foster video">
+
+          <img
+            src="https://i.ytimg.com/vi/orH2CSNCxoI/hqdefault.jpg"
+            alt="No Fighting"
+          >
+
           <div class="play-button"></div>
+
         </div>
-        <div class="video-number">Video 05</div>
+
+        <div class="video-title">
+          No Fighting
+        </div>
+
       </a>
 
-      <a class="video" href="https://www.youtube.com/watch?v=PRKTwr0ckN0" target="_blank" rel="noopener noreferrer">
+
+      <!-- VIDEO 6 -->
+
+      <a
+        class="video"
+        href="https://www.youtube.com/watch?v=PRKTwr0ckN0"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
         <div class="thumbnail">
-          <img src="https://i.ytimg.com/vi/PRKTwr0ckN0/hqdefault.jpg" alt="Blake Foster video">
+
+          <img
+            src="https://i.ytimg.com/vi/PRKTwr0ckN0/hqdefault.jpg"
+            alt="Naked in the Rain (Live)"
+          >
+
           <div class="play-button"></div>
+
         </div>
-        <div class="video-number">Video 06</div>
+
+        <div class="video-title">
+          Naked in the Rain(Live)
+        </div>
+
       </a>
 
-      <a class="video" href="https://www.youtube.com/watch?v=6M6ljwJLdy8" target="_blank" rel="noopener noreferrer">
+
+      <!-- VIDEO 7 -->
+
+      <a
+        class="video"
+        href="https://www.youtube.com/watch?v=6M6ljwJLdy8"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
         <div class="thumbnail">
-          <img src="https://i.ytimg.com/vi/6M6ljwJLdy8/hqdefault.jpg" alt="Blake Foster video">
+
+          <img
+            src="https://i.ytimg.com/vi/6M6ljwJLdy8/hqdefault.jpg"
+            alt="Falling is so Easy (Live)"
+          >
+
           <div class="play-button"></div>
+
         </div>
-        <div class="video-number">Video 07</div>
+
+        <div class="video-title">
+          Falling is so Easy(Live)
+        </div>
+
       </a>
 
-      <a class="video" href="https://www.youtube.com/watch?v=HrGDso5a0e4" target="_blank" rel="noopener noreferrer">
+
+      <!-- VIDEO 8 -->
+
+      <a
+        class="video"
+        href="https://www.youtube.com/watch?v=HrGDso5a0e4"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
         <div class="thumbnail">
-          <img src="https://i.ytimg.com/vi/HrGDso5a0e4/hqdefault.jpg" alt="Blake Foster video">
+
+          <img
+            src="https://i.ytimg.com/vi/HrGDso5a0e4/hqdefault.jpg"
+            alt="Doin’ Time Cover"
+          >
+
           <div class="play-button"></div>
+
         </div>
-        <div class="video-number">Video 08</div>
+
+        <div class="video-title">
+          Doin’ Time Cover
+        </div>
+
       </a>
 
-      <a class="video" href="https://www.youtube.com/watch?v=Dza9CqK5Nqc" target="_blank" rel="noopener noreferrer">
+
+      <!-- VIDEO 9 -->
+
+      <a
+        class="video"
+        href="https://www.youtube.com/watch?v=Dza9CqK5Nqc"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
         <div class="thumbnail">
-          <img src="https://i.ytimg.com/vi/Dza9CqK5Nqc/hqdefault.jpg" alt="Blake Foster video">
+
+          <img
+            src="https://i.ytimg.com/vi/Dza9CqK5Nqc/hqdefault.jpg"
+            alt="Naked in the Rain"
+          >
+
           <div class="play-button"></div>
+
         </div>
-        <div class="video-number">Video 09</div>
+
+        <div class="video-title">
+          Naked in the Rain
+        </div>
+
       </a>
 
-      <a class="video" href="https://www.youtube.com/watch?v=lLY2-ByQN5Y" target="_blank" rel="noopener noreferrer">
+
+      <!-- VIDEO 10 -->
+
+      <a
+        class="video"
+        href="https://www.youtube.com/watch?v=lLY2-ByQN5Y"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
         <div class="thumbnail">
-          <img src="https://i.ytimg.com/vi/lLY2-ByQN5Y/hqdefault.jpg" alt="Blake Foster video">
+
+          <img
+            src="https://i.ytimg.com/vi/lLY2-ByQN5Y/hqdefault.jpg"
+            alt="Falling is so Easy"
+          >
+
           <div class="play-button"></div>
+
         </div>
-        <div class="video-number">Video 10</div>
+
+        <div class="video-title">
+          Falling is so Easy
+        </div>
+
       </a>
 
-      <a class="video" href="https://www.youtube.com/watch?v=hf9YuVds3nY" target="_blank" rel="noopener noreferrer">
+
+      <!-- VIDEO 11 -->
+
+      <a
+        class="video"
+        href="https://www.youtube.com/watch?v=hf9YuVds3nY"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
         <div class="thumbnail">
-          <img src="https://i.ytimg.com/vi/hf9YuVds3nY/hqdefault.jpg" alt="Blake Foster video">
+
+          <img
+            src="https://i.ytimg.com/vi/hf9YuVds3nY/hqdefault.jpg"
+            alt="I’n Watching Him"
+          >
+
           <div class="play-button"></div>
+
         </div>
-        <div class="video-number">Video 11</div>
+
+        <div class="video-title">
+          I’n Watching Him
+        </div>
+
       </a>
 
-      <a class="video" href="https://www.youtube.com/watch?v=J56peQcEjWY&t=62s" target="_blank" rel="noopener noreferrer">
+
+      <!-- VIDEO 12 -->
+
+      <a
+        class="video"
+        href="https://www.youtube.com/watch?v=J56peQcEjWY&t=62s"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
         <div class="thumbnail">
-          <img src="https://i.ytimg.com/vi/J56peQcEjWY/hqdefault.jpg" alt="Blake Foster video">
+
+          <img
+            src="https://i.ytimg.com/vi/J56peQcEjWY/hqdefault.jpg"
+            alt="March 2025"
+          >
+
           <div class="play-button"></div>
+
         </div>
-        <div class="video-number">Video 12</div>
+
+        <div class="video-title">
+          March 2025
+        </div>
+
       </a>
 
-      <a class="video" href="https://www.youtube.com/watch?v=Zp0WJeYzJwk" target="_blank" rel="noopener noreferrer">
+
+      <!-- VIDEO 13 -->
+
+      <a
+        class="video"
+        href="https://www.youtube.com/watch?v=Zp0WJeYzJwk"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
         <div class="thumbnail">
-          <img src="https://i.ytimg.com/vi/Zp0WJeYzJwk/hqdefault.jpg" alt="Blake Foster video">
+
+          <img
+            src="https://i.ytimg.com/vi/Zp0WJeYzJwk/hqdefault.jpg"
+            alt="Over My Head Cover"
+          >
+
           <div class="play-button"></div>
+
         </div>
-        <div class="video-number">Video 13</div>
+
+        <div class="video-title">
+          Over My Head Cover
+        </div>
+
       </a>
 
-      <a class="video" href="https://www.youtube.com/watch?v=eeuLcGGg2UE" target="_blank" rel="noopener noreferrer">
+
+      <!-- VIDEO 14 -->
+
+      <a
+        class="video"
+        href="https://www.youtube.com/watch?v=eeuLcGGg2UE"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
         <div class="thumbnail">
-          <img src="https://i.ytimg.com/vi/eeuLcGGg2UE/hqdefault.jpg" alt="Blake Foster video">
+
+          <img
+            src="https://i.ytimg.com/vi/eeuLcGGg2UE/hqdefault.jpg"
+            alt="Last Supper (Live)"
+          >
+
           <div class="play-button"></div>
+
         </div>
-        <div class="video-number">Video 14</div>
+
+        <div class="video-title">
+          Last Supper(Live)
+        </div>
+
       </a>
 
-      <a class="video" href="https://www.youtube.com/watch?v=sCWWTvYixOI" target="_blank" rel="noopener noreferrer">
+
+      <!-- VIDEO 15 -->
+
+      <a
+        class="video"
+        href="https://www.youtube.com/watch?v=sCWWTvYixOI"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
         <div class="thumbnail">
-          <img src="https://i.ytimg.com/vi/sCWWTvYixOI/hqdefault.jpg" alt="Blake Foster video">
+
+          <img
+            src="https://i.ytimg.com/vi/sCWWTvYixOI/hqdefault.jpg"
+            alt="Far From Home (Live)"
+          >
+
           <div class="play-button"></div>
+
         </div>
-        <div class="video-number">Video 15</div>
+
+        <div class="video-title">
+          Far From Home(Live)
+        </div>
+
       </a>
 
-      <a class="video" href="https://www.youtube.com/watch?v=YLZ8Xal7izs" target="_blank" rel="noopener noreferrer">
+
+      <!-- VIDEO 16 -->
+
+      <a
+        class="video"
+        href="https://www.youtube.com/watch?v=YLZ8Xal7izs"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
         <div class="thumbnail">
-          <img src="https://i.ytimg.com/vi/YLZ8Xal7izs/hqdefault.jpg" alt="Blake Foster video">
+
+          <img
+            src="https://i.ytimg.com/vi/YLZ8Xal7izs/hqdefault.jpg"
+            alt="Last Supper"
+          >
+
           <div class="play-button"></div>
+
         </div>
-        <div class="video-number">Video 16</div>
+
+        <div class="video-title">
+          Last Supper
+        </div>
+
       </a>
+
 
     </section>
+
   </main>
+
 
   <footer>
     © 2026 Blake Foster
   </footer>
+
 
 </body>
 </html>
