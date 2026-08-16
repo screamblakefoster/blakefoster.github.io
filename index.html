@@ -36,15 +36,22 @@
     }
 
     /* =========================
-       NAVIGATION
+       LOGO + NAVIGATION
        ========================= */
 
     header {
       width: 100%;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
-      padding: 45px 30px 70px;
+      padding: 55px 30px 75px;
+    }
+
+    .logo {
+      width: 190px;
+      height: auto;
+      display: block;
+      margin-bottom: 55px;
     }
 
     nav {
@@ -167,7 +174,12 @@
     @media (max-width: 900px) {
 
       header {
-        padding: 35px 20px 55px;
+        padding: 45px 20px 60px;
+      }
+
+      .logo {
+        width: 165px;
+        margin-bottom: 45px;
       }
 
       nav {
@@ -192,7 +204,12 @@
     @media (max-width: 650px) {
 
       header {
-        padding: 30px 18px 50px;
+        padding: 35px 18px 50px;
+      }
+
+      .logo {
+        width: 140px;
+        margin-bottom: 38px;
       }
 
       nav {
@@ -232,6 +249,10 @@
 
     @media (max-width: 450px) {
 
+      .logo {
+        width: 120px;
+      }
+
       nav {
         font-size: 18px;
         gap: 15px;
@@ -253,10 +274,16 @@
 
 
   <!-- =========================
-       NAVIGATION
+       LOGO + NAVIGATION
        ========================= -->
 
   <header>
+
+    <img
+      class="logo"
+      src="transparent-white-mask.png"
+      alt="Blake Foster"
+    >
 
     <nav aria-label="Main navigation">
 
@@ -308,12 +335,10 @@
       >
 
         <div class="art">
-
           <img
             src="like-a-millionaire.jpg"
             alt="Like A Millionaire"
           >
-
         </div>
 
         <div class="song-meta">
@@ -345,12 +370,10 @@
       >
 
         <div class="art">
-
           <img
             src="city-of-god.jpg"
             alt="City of God"
           >
-
         </div>
 
         <div class="song-meta">
@@ -382,12 +405,10 @@
       >
 
         <div class="art">
-
           <img
             src="something-you-like.jpg"
             alt="Something You Like"
           >
-
         </div>
 
         <div class="song-meta">
@@ -419,12 +440,10 @@
       >
 
         <div class="art">
-
           <img
             src="no-fighting.jpg"
             alt="No Fighting"
           >
-
         </div>
 
         <div class="song-meta">
@@ -456,12 +475,10 @@
       >
 
         <div class="art">
-
           <img
             src="naked-in-the-rain.jpg"
             alt="Naked in the Rain"
           >
-
         </div>
 
         <div class="song-meta">
@@ -493,12 +510,10 @@
       >
 
         <div class="art">
-
           <img
             src="falling-is-so-easy.jpg"
             alt="Falling is so Easy"
           >
-
         </div>
 
         <div class="song-meta">
@@ -530,12 +545,10 @@
       >
 
         <div class="art">
-
           <img
             src="im-watching-him.jpg"
             alt="I'm Watching Him"
           >
-
         </div>
 
         <div class="song-meta">
@@ -567,12 +580,10 @@
       >
 
         <div class="art">
-
           <img
             src="last-supper.jpg"
             alt="Last Supper"
           >
-
         </div>
 
         <div class="song-meta">
@@ -604,12 +615,10 @@
       >
 
         <div class="art">
-
           <img
             src="happiness-aint-too-far.jpg"
             alt="Happiness Ain't Too Far"
           >
-
         </div>
 
         <div class="song-meta">
@@ -641,12 +650,10 @@
       >
 
         <div class="art">
-
           <img
             src="never-going-home.jpg"
             alt="Never Going Home"
           >
-
         </div>
 
         <div class="song-meta">
