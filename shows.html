@@ -6,10 +6,13 @@
 
   <title>Blake Foster — Shows</title>
 
+  <link rel="icon" href="favicon.png" type="image/png">
+
   <style>
     :root {
       --bg: #000000;
       --fg: #ffffff;
+      --muted: #8c8c8c;
     }
 
     * {
@@ -84,20 +87,54 @@
        ========================= */
 
     main {
-      min-height: 45vh;
-
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
+      max-width: 1100px;
+      margin: 0 auto;
       padding: 0 30px 100px;
-
-      text-align: center;
     }
 
-    .message {
-      font-size: 30px;
+    .shows {
+      width: 100%;
+    }
+
+    .show {
+      display: grid;
+      grid-template-columns: 180px 1fr auto;
+      align-items: center;
+      gap: 40px;
+
+      padding: 30px 0;
+
+      border-bottom: 1px solid #222222;
+    }
+
+    .show:first-child {
+      border-top: 1px solid #222222;
+    }
+
+    .date {
+      font-size: 24px;
       line-height: 1.1;
+    }
+
+    .venue {
+      font-size: 24px;
+      line-height: 1.1;
+    }
+
+    .location {
+      color: var(--muted);
+      font-size: 16px;
+      margin-top: 8px;
+    }
+
+    .show-link {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .show-link:hover {
+      opacity: 0.55;
     }
 
     /* =========================
@@ -134,8 +171,14 @@
         padding: 0 20px 80px;
       }
 
-      .message {
-        font-size: 25px;
+      .show {
+        grid-template-columns: 150px 1fr auto;
+        gap: 25px;
+      }
+
+      .date,
+      .venue {
+        font-size: 21px;
       }
     }
 
@@ -165,8 +208,27 @@
         padding: 0 18px 70px;
       }
 
-      .message {
+      .show {
+        grid-template-columns: 1fr auto;
+        gap: 15px;
+        padding: 25px 0;
+      }
+
+      .date {
+        grid-column: 1 / -1;
+        font-size: 22px;
+      }
+
+      .venue {
         font-size: 20px;
+      }
+
+      .location {
+        font-size: 14px;
+      }
+
+      .show-link {
+        font-size: 12px;
       }
     }
 
@@ -186,8 +248,20 @@
         gap: 15px;
       }
 
-      .message {
+      .date {
+        font-size: 20px;
+      }
+
+      .venue {
         font-size: 18px;
+      }
+
+      .location {
+        font-size: 13px;
+      }
+
+      .show-link {
+        font-size: 11px;
       }
     }
 
@@ -246,9 +320,31 @@
 
   <main>
 
-    <div class="message">
-      Shows will be announced soon.
-    </div>
+    <section class="shows">
+
+      <div class="show">
+
+        <div class="date">
+          DEC 18, 2026
+        </div>
+
+        <div>
+          <div class="venue">
+            Wonder Bar
+          </div>
+
+          <div class="location">
+            Asbury Park, NJ
+          </div>
+        </div>
+
+        <div class="show-link">
+          Details Soon
+        </div>
+
+      </div>
+
+    </section>
 
   </main>
 
