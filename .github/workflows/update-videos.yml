@@ -1,4 +1,3 @@
-
 name: Update YouTube Videos
 
 on:
@@ -17,10 +16,26 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Update videos
+      - name: Get YouTube videos
         run: |
-          echo "YouTube update system is ready."
-          
+          python3 - <<'PY'
+          import urllib.request
+          import xml.etree.ElementTree as ET
+
+          url = "https://www.youtube.com/feeds/videos.xml?channel_id=UCxhSx6DOlS6fGkA0cOe8JUw"
+
+          try:
+              data = urllib.request.urlopen(url).read()
+              root = ET.fromstring(data)
+
+              print("YouTube feed successfully reached.")
+              print(f"Found {len(root)} entries.")
+
+          except Exception as e:
+              print(f"YouTube feed error: {e}")
+              raise
+          PY
+
       - name: Commit changes
         run: |
           git config user.name "github-actions[bot]"
