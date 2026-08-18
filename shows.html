@@ -278,41 +278,58 @@
       }
 
       .show-card {
-        grid-template-columns: 1fr;
-        gap: 24px;
-        padding: 30px 0;
+        grid-template-columns: 1fr auto;
+        gap: 18px 20px;
+        padding: 26px 0 30px;
       }
 
       .show-date {
+        grid-column: 1 / -1;
         text-align: left;
         display: flex;
         align-items: baseline;
-        gap: 10px;
+        gap: 9px;
+        margin-bottom: 2px;
       }
 
       .show-month {
-        font-size: 14px;
+        font-size: 13px;
         margin-bottom: 0;
       }
 
       .show-day {
-        font-size: 58px;
+        font-size: 54px;
+      }
+
+      .show-info {
+        align-self: center;
       }
 
       .show-venue {
-        font-size: 25px;
+        font-size: 24px;
+        margin-bottom: 7px;
       }
 
       .show-location {
         font-size: 14px;
       }
 
+      .show-status {
+        font-size: 10px;
+        margin-top: 13px;
+      }
+
       .show-action {
-        text-align: left;
+        align-self: center;
+        text-align: right;
+        min-width: 105px;
       }
 
       .ticket-button {
-        width: 100%;
+        min-width: 105px;
+        height: 42px;
+        padding: 0 16px;
+        font-size: 12px;
       }
     }
 
@@ -332,8 +349,26 @@
         gap: 15px;
       }
 
+      .show-card {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      .show-date {
+        grid-column: 1;
+      }
+
+      .show-action {
+        text-align: left;
+        min-width: 0;
+      }
+
+      .ticket-button {
+        width: 100%;
+      }
+
       .show-day {
-        font-size: 52px;
+        font-size: 50px;
       }
 
       .show-venue {
