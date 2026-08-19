@@ -49,11 +49,39 @@
       padding: 55px 30px 0;
     }
 
-    .logo {
+    .logo-switch {
+      position: relative;
       width: 190px;
+      padding: 0;
+      margin: 0 0 27.5px;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+      display: block;
+    }
+
+    .logo-switch .logo {
+      width: 100%;
       height: auto;
       display: block;
-      margin-bottom: 27.5px;
+      margin: 0;
+    }
+
+    .logo-colored {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    .logo-switch:hover .logo-colored,
+    .logo-switch.is-colored .logo-colored {
+      opacity: 1;
+    }
+
+    .logo-switch:hover .logo-white,
+    .logo-switch.is-colored .logo-white {
+      opacity: 0;
     }
 
     nav {
@@ -348,7 +376,7 @@
         padding: 45px 20px 60px;
       }
 
-      .logo {
+      .logo-switch {
         width: 165px;
         margin-bottom: 22.5px;
       }
@@ -386,7 +414,7 @@
         margin-top: 0;
       }
 
-      .logo {
+      .logo-switch {
         width: 140px;
         margin-bottom: 19px;
       }
@@ -432,7 +460,7 @@
 
     @media (max-width: 450px) {
 
-      .logo {
+      .logo-switch {
         width: 120px;
         margin-bottom: 15px;
       }
@@ -474,11 +502,25 @@
 
   <header>
 
-    <img
-      class="logo"
-      src="transparent-white-mask.png"
-      alt="Blake Foster"
+    <button
+      class="logo-switch"
+      type="button"
+      aria-label="Toggle logo color"
+      aria-pressed="false"
     >
+      <img
+        class="logo logo-white"
+        src="transparent-white-mask.png"
+        alt="Blake Foster"
+      >
+
+      <img
+        class="logo logo-colored"
+        src="colored-mask-logo.png"
+        alt=""
+        aria-hidden="true"
+      >
+    </button>
 
     <nav aria-label="Main navigation">
 
@@ -1286,6 +1328,18 @@
     </div>
 
   </footer>
+
+
+  <script>
+    const logoSwitch = document.querySelector(".logo-switch");
+
+    if (logoSwitch && window.matchMedia("(hover: none), (pointer: coarse)").matches) {
+      logoSwitch.addEventListener("click", () => {
+        const isColored = logoSwitch.classList.toggle("is-colored");
+        logoSwitch.setAttribute("aria-pressed", isColored ? "true" : "false");
+      });
+    }
+  </script>
 
 </body>
 </html>
