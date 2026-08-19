@@ -67,21 +67,23 @@
       margin: 0;
     }
 
+    .logo-white {
+      position: relative;
+      z-index: 1;
+    }
+
     .logo-colored {
       position: absolute;
       inset: 0;
+      z-index: 2;
       opacity: 0;
-      transition: opacity 0.25s ease;
+      transition: opacity 0.18s ease;
+      pointer-events: none;
     }
 
     .logo-switch:hover .logo-colored,
     .logo-switch.is-colored .logo-colored {
       opacity: 1;
-    }
-
-    .logo-switch:hover .logo-white,
-    .logo-switch.is-colored .logo-white {
-      opacity: 0;
     }
 
     nav {
