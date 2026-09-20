@@ -111,17 +111,17 @@
   <script>
     // Bump this number after every shoot — photos live in /photos
     // named sequentially and zero-padded to 3 digits: 001.jpg, 002.jpg, etc.
-    const totalPhotos = 360;
+    const totalPhotos = 250;
 
     const roll = document.getElementById("roll");
     const countLabel = document.getElementById("photo-count");
 
     const fragment = document.createDocumentFragment();
 
-    for (let i = 1; i <= totalPhotos; i++) {
+    for (let i = totalPhotos; i >= 1; i--) {
       const num = String(i).padStart(3, "0");
       const img = document.createElement("img");
-      img.src = `photos/${num}.jpg`;
+      img.src = `https://pub-11b6d55dd810476191a3e3642b7f28b7.r2.dev/${num}.jpg`;
       img.alt = "";
       img.loading = "lazy";
       img.decoding = "async";
