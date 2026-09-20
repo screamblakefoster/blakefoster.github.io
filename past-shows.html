@@ -416,10 +416,10 @@ footer {
 
 <header>
 
-  <button
+  <a
     class="logo-switch"
-    type="button"
-    aria-label="Toggle logo color"
+    href="roll.html"
+    aria-label="Blake Foster"
     aria-pressed="false"
   >
 
@@ -436,7 +436,7 @@ footer {
       aria-hidden="true"
     >
 
-  </button>
+  </a>
 
 
   <nav aria-label="Main navigation">
@@ -804,15 +804,17 @@ if (
   window.matchMedia("(hover: none), (pointer: coarse)").matches
 ) {
 
-  logoSwitch.addEventListener("click", () => {
+  logoSwitch.addEventListener("click", (e) => {
 
-    const isColored =
-      logoSwitch.classList.toggle("is-colored");
+    if (!logoSwitch.classList.contains("is-colored")) {
 
-    logoSwitch.setAttribute(
-      "aria-pressed",
-      isColored ? "true" : "false"
-    );
+      e.preventDefault();
+
+      logoSwitch.classList.add("is-colored");
+
+      logoSwitch.setAttribute("aria-pressed", "true");
+
+    }
 
   });
 
