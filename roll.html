@@ -229,7 +229,7 @@
   <script>
     // Bump this number after every shoot — photos live in /photos
     // named sequentially and zero-padded to 3 digits: 001.jpg, 002.jpg, etc.
-    const totalPhotos = 360;
+    const totalPhotos = 362;
 
     const roll = document.getElementById("roll");
     const countLabel = document.getElementById("photo-count");
@@ -247,7 +247,8 @@
       img.alt = "";
       img.loading = "lazy";
       img.decoding = "async";
-      img.addEventListener("click", () => openLightbox(urls.length - 1));
+      const photoIndex = urls.length - 1;
+      img.addEventListener("click", () => openLightbox(photoIndex));
       fragment.appendChild(img);
     }
 
