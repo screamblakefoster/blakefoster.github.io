@@ -287,10 +287,10 @@
 
   <header>
 
-    <button
+    <a
       class="logo-switch"
-      type="button"
-      aria-label="Toggle logo color"
+      href="roll.html"
+      aria-label="Blake Foster"
       aria-pressed="false"
     >
       <img
@@ -305,7 +305,7 @@
         alt=""
         aria-hidden="true"
       >
-    </button>
+    </a>
 
     <nav aria-label="Main navigation">
 
@@ -370,9 +370,12 @@
     const logoSwitch = document.querySelector(".logo-switch");
 
     if (logoSwitch && window.matchMedia("(hover: none), (pointer: coarse)").matches) {
-      logoSwitch.addEventListener("click", () => {
-        const isColored = logoSwitch.classList.toggle("is-colored");
-        logoSwitch.setAttribute("aria-pressed", isColored ? "true" : "false");
+      logoSwitch.addEventListener("click", (e) => {
+        if (!logoSwitch.classList.contains("is-colored")) {
+          e.preventDefault();
+          logoSwitch.classList.add("is-colored");
+          logoSwitch.setAttribute("aria-pressed", "true");
+        }
       });
     }
   </script>
